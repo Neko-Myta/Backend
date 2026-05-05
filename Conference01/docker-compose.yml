@@ -1,0 +1,7 @@
+service:
+  app:
+    build: ./src
+    container_name: conference01
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
