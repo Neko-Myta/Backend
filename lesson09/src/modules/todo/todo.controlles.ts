@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { TodoService } from "./todo.server";
+import { TodoService } from "./todo.servir";
 
 export class TodoController {
   constructor(private readonly service: TodoService) { }
@@ -10,21 +10,18 @@ export class TodoController {
   }
 
   async create(req: Request, res: Response) {
+  try {
     const { title } = req.body;
 
-    if (!title) {
-      return res.status(400).json({ error: "Bad request" });
+    const todo = await this.service.create(title);
+
+    return res.status(201).json(todo);
+  } catch (error) {
+    if (error instanceof Error) {
+      return res.status(400).json({ error: error.message });
     }
 
-    try {
-      const todo = await this.service.create(title);
-      return res.status(201).json(todo);
-    } catch (error) {
-      if (error instanceof Error) {
-        return res.status(400).json({ error: error.message });
-      }
-
-      return res.status(500).json({ error: "Internal server error" });
-    }
+    return res.status(500).json({ error: "Internal server error" });
   }
+}
 }

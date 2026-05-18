@@ -8,6 +8,20 @@
       "when": 1778698466332,
       "tag": "0000_legal_lady_ursula",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1779045621110,
+      "tag": "0001_wonderful_rictor",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1779047168300,
+      "tag": "0002_curvy_paper_doll",
+      "breakpoints": true
     }
   ]
 }

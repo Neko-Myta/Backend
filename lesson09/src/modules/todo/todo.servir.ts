@@ -1,5 +1,5 @@
 
-import { Todo, TodoRepository } from './todo.entety';
+import { Todo, TodoRepository } from './todo.entity';
 
 
 export class TodoService {
@@ -10,10 +10,10 @@ export class TodoService {
   }
   
   create(title: string): Promise<Todo> {
-    if (!title) {
-      throw new Error('Title is required');
-    }
-
-    return this.repo.create(title);
+  if (!title || title.trim().length === 0) {
+    throw new Error('Title is required');
   }
+
+  return this.repo.create(title);
+} 
 }
