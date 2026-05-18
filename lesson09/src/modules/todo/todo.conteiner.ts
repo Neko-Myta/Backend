@@ -12,3 +12,4 @@ export function buildTodoRouter(): Router {
   const controller = new TodoController(service);
   return createTodoRouter(controller);
 }
+
